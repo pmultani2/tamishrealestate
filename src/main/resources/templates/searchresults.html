@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+</head>
+<a class="result" th:each="property, iterStat : ${properties}" th:href="@{/property/{id}(id=${property.mlNum})}" th:attr="hx-get=${iterStat.last} ? '/search?page=' + ${nextPage} : null" hx-include="[name='query'], [name='beds'], [name='baths'], [name='min-price'], [name='max-price']" hx-trigger="revealed delay:1000ms" hx-swap="afterend">
+    <img class="property-img" th:src="@{/photos/{id}/1.jpeg(id=${property.mlNum})}">
+    <p class="property-address" th:text="${property.addr}"></p>
+    <p class="property-bed-bath" th:text="|${property.br} BD ${property.bathTot} BA|"></p>
+    <p class="property-price" th:text="${'$' + #numbers.formatDecimal(property.lpDol, 0, 'COMMA', 2, 'POINT')}"></p>
+    <p class="property-brokerage" th:text="|Listing courtesy of ${property.rltr}|"></p>
+</a>
+</html>

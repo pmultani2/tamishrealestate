@@ -1,0 +1,263 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.heading {
+  font-size: 32px;
+}
+
+section {
+  padding: 2em;
+}
+
+#intro-section {
+  display: flex;
+  gap: 1em;
+}
+
+#intro-section div {
+  width: 50%;
+}
+
+#intro-h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 8vw;
+}
+
+#intro-h1::before {
+  content: "How to buy real estate in";
+  font-size: 1.75vw;
+}
+
+
+#bedroom-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+section nav {
+  font-size: large;
+}
+
+#choose-realtor-section {
+  display: flex;
+  gap: 1em;
+}
+
+#choose-realtor-section div {
+  width: 50%;
+}
+
+#wooden-img {
+  max-width: 100%;
+  width: 500px;
+  object-fit: cover;
+  aspect-ratio: 1;
+  display: flex;
+  margin: 0 auto;
+}
+
+#pre-approval-section {
+  display: flex;
+  background-color: #F1F1EF;
+}
+
+#pre-approval-section * {
+  width: 50%;
+}
+
+#preferences-section {
+  display: flex;
+}
+
+#preferences-section div {
+  width: 50%;
+}
+
+#preferences-section h1 {
+  width: 50%;
+}
+
+#map-section {
+  padding: 0;
+}
+
+#map-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#government-programs-section {
+  display: flex;
+}
+
+#government-programs-section > * {
+  width: 50%;
+}
+
+#consider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#consider-section header {
+  text-align: center;
+}
+
+#comparison-div {
+  display: flex;
+  gap: 1em;
+}
+
+.compare-item-div {
+  width: 50%;
+  text-align: center;
+}
+
+.compare-img {
+  max-width: 100%;
+  object-fit: cover;
+  width: 500px;
+  height: 350px;
+}
+
+#costs-section {
+  display: flex;
+}
+
+#costs-section header {
+  width: 35%;
+}
+
+#costs-categories-div {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#searching-section {
+  display: flex;
+  gap: 4em;
+}
+
+#searching-section > * {
+  width: 50%;
+}
+
+#realm-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#offer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#offer-section div {
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  #intro-section {
+    flex-direction: column;
+  }
+
+  #intro-section div {
+    width: 100%;
+  }
+
+  #intro-section header {
+    text-align: center;
+  }
+
+  #intro-h1 {
+    font-size: 20vw;
+  }
+
+  #intro-h1::before {
+    font-size: 4vw;
+  }
+
+  #choose-realtor-section {
+    flex-direction: column;
+  }
+
+  #choose-realtor-section div {
+    width: 100%;
+  }
+
+  #wooden-img {
+    width: 100%;
+    aspect-ratio: unset;
+  }
+
+  #pre-approval-section {
+    flex-direction: column;
+  }
+  
+  #pre-approval-section * {
+    width: 100%;
+  }
+  
+  #preferences-section {
+    flex-direction: column;
+  }
+  
+  #preferences-section div {
+    width: 100%;
+  }
+
+  #costs-section {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  #costs-section header {
+    width: 100%;
+  }
+
+  #costs-categories-div {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #searching-section {
+    flex-direction: column-reverse;
+    gap: unset;
+  }
+  
+  #searching-section > * {
+    width: 100%;
+  }
+  
+  #offer-section div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #government-programs-section {
+    flex-direction: column;
+  }
+
+  #government-programs-section > * {
+    width: 100%;
+  }
+
+  #comparison-div {
+    flex-direction: column;
+  }
+
+  .compare-item-div {
+    width: 100%;
+  }
+
+  .compare-img {
+    width: 100%;
+  }
+}

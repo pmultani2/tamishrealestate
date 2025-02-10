@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tamish Multani Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="stylesheet" href="../styles/general2.css">
+    <link rel="stylesheet" href="../styles/carousel.css">
+    <link rel="stylesheet" href="../styles/property.css">
+    <script src="https://kit.fontawesome.com/9ecfa21df9.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header id="sticky-header">
+      <a href="/" class="bold" id="home-link">TAMISH</a>
+      <nav id="header-nav">
+        <a href="/search">Property Search</a>
+        <a href="/" class="bold">TAMISH</a>
+        <a href="/#contact-section">Contact Us</a>
+      </nav>
+      <button id="hamburger" style="border: none; background-color: transparent;">
+        <i class="fa-solid fa-bars fa-xl" style="color: #000000;"></i>
+      </button>
+    </header>
+    <div id="overlay">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/search" class="underline">Property Search</a>
+        <a href="../contact.html">Contact Us</a>
+      </nav>
+    </div>
+    <hr>
+    <main>
+      <section id="property">
+        <div id="property-img-div" class="carousel">
+          <div class="button-div">
+            <button class="carousel-btn carousel-left-btn">&#8592</button>
+            <button class="carousel-btn carousel-right-btn">&#8594</button>
+          </div>
+          <div class="carousel-elements-wrapper">
+            <img th:each="photoId : ${#numbers.sequence(1, photoCount)}" th:src="@{/photos/{id}/{photoId}.jpeg(id=${property.mlNum}, photoId=${photoId})}" class="carousel-element" alt="property photo">
+          </div>
+        </div>
+        <div id="property-info-div" class="light">
+          <h1 id="property-address" th:text="${property.addr}"></h1>
+          <h3 id="property-area" th:text="|${property.area}, ${property.county} ${property.zip}|"></h3>
+          <p id="property-bed-bath" th:text="|${property.br} BR ${property.bathTot} BA|"></p>
+          <p id="property-price" class="bold" th:text="${'$' + #numbers.formatDecimal(property.lpDol, 0, 'COMMA', 2, 'POINT')}"></p>
+          <p id="property-description" th:text="${property.adText}"></p>
+          <p id="property-extras" th:text="${property.extras}"></p>
+        </div>
+        <div id="property-iframe-div">
+          <iframe
+          width="450"
+          height="250"
+          frameborder="0" style="border:0"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div id="footer-left">
+        <h4 class="bold">Tamish Multani Real Estate Agent</h4>
+        <nav id="footer-left-nav">
+          <a href="https://goldbarrsrealestate.com/" target="_blank" class="bold underline">Gold Barrs Real Estate Team</a>
+          <a href="https://psrbrokerage.com/" target="_blank" class="bold underline">PSR Brokerage</a>
+        </nav>
+        <div id="footer-left-address" class="light">
+          <p>325 Lonsdale Rd, Toronto, ON M4V 1X3</p>
+        </div>
+        <div id="footer-left-contact" class="light">
+          <p>Phone: <a href="tel:(647) 354-8420" class="underline">(647) 354-8420</a></p>
+          <p>Email: <a href="mailto:tamish@psrbrokerage.com" target="_blank" class="underline">tamish@psrbrokerage.com</a></p>
+        </div>
+      </div>
+      <div id="footer-right">
+        <div id="footer-right-left">
+          <h4 class="bold">About</h4>
+          <nav id="footer-middle-nav" class="light underline">
+            <a href="../about.html">Who we are</a>
+            <a href="../buyingguide.html">Buying Guide</a>
+            <a href="../sellingguide.html">Selling Guide</a>
+            <a href="../rentingguide.html">Renting Guide</a>
+            <a href="../contact.html">Contact Me</a>
+          </nav>
+        </div>
+        <div id="footer-right-right">
+          <h4 class="bold">Follow</h4>
+          <nav id="footer-right-nav" class="light underline">
+            <a href="https://www.instagram.com/tamish" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/tamishmultani" target="_blank">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="../scripts/hamburger.js"></script>
+    <script src="../scripts/carousel.js"></script>
+  </body>
+</html>

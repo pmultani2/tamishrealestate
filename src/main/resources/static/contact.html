@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact - Tamish Multani Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <script src="https://kit.fontawesome.com/9ecfa21df9.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header id="sticky-header">
+      <div id="logo-container">
+        <a href="index.html">
+          <img src="images/logo-transparent.png" id="header-logo" alt="logo">
+        </a>
+      </div>
+      <nav id="header-nav">
+        <a href="index.html">Home</a>
+        <a href="../templates/search.html">Search</a>
+        <div id="drop-hover">
+          <a>More</a>
+          <nav id="header-dropdown">
+            <a href="buyingguide.html">Buying Guide</a>
+            <a href="sellingguide.html">Selling Guide</a>
+            <a href="rentingguide.html">Renting Guide</a>
+            <a href="about.html">About</a>
+          </nav>
+        </div>
+        <a href="contact.html">
+          <button class="contact-btn">CONTACT</button>
+        </a>
+      </nav>
+      <button id="hamburger" style="border: none; background-color: transparent;">
+        <i class="fa-solid fa-bars fa-xl" style="color: #000000;"></i>
+      </button>
+    </header>
+    <div id="overlay">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="../templates/search.html">Search</a>
+        <a href="buyingguide.html">Buying Guide</a>
+        <a href="sellingguide.html">Selling Guide</a>
+        <a href="rentingguide.html">Renting Guide</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">
+          <button class="contact-btn">CONTACT</button>
+        </a>
+      </nav>
+    </div>
+    <main>
+      <section>
+        <header>
+          <h1 class="bold">Contact us</h1>
+        </header>
+        <p class="light">Let's Connect!</p>
+        <p class="light">Whether you have questions or want to talk about the latest market trends, I'm here to help. Fill out the form or use the contact information provided to reach out to me directly.</p>
+        <p class="bold">Email</p>
+        <a class="underline light" href="mailto:tamish@psrbrokerage.com" target="_blank">tamish@psrbrokerage.com</a>
+        <p class="bold">Phone</p>
+        <a class="underline light" href="tel:(647) 354-8420" target="_blank">(647) 354-8420</a>
+        <nav>
+          <a href="https://www.instagram.com/tamish/" target="_blank"><i class="fa-brands fa-instagram fa-lg" style="color: #000000;"></i></a>
+          <a href="https://www.linkedin.com/in/tamishmultani/" target="_blank"><i class="fa-brands fa-linkedin-in fa-lg" style="color: #000000;"></i></a>
+        </nav>
+      </section>
+      <section>
+        <form class="light" method="POST">
+          <div id="name-div">
+            <div>
+              <label for="first-name">First Name</label>
+              <input type="text" name="first-name" required id="first-name" class="name">
+            </div>
+            <div>
+              <label for="last-name">Last Name</label>
+              <input type="text" name="last-name" required id="last-name" class="name">
+            </div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" required id="email">
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" required id="phone">
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" required id="subject">
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea name="message" required id="message"></textarea>
+          </div>  
+          <input type="submit" class="contact-btn bold" id="submit-btn" value="SUBMIT">
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div id="footer-left">
+        <h4 class="bold">Tamish Multani Real Estate Agent</h4>
+        <nav id="footer-left-nav">
+          <a href="https://goldbarrsrealestate.com/" target="_blank" class="bold underline">Gold Barrs Real Estate Team</a>
+          <a href="https://psrbrokerage.com/" target="_blank" class="bold underline">PSR Brokerage</a>
+        </nav>
+        <div id="footer-left-address" class="light">
+          <p>325 Lonsdale Rd, Toronto, ON M4V 1X3</p>
+        </div>
+        <div id="footer-left-contact" class="light">
+          <p>Phone: <a href="tel:(647) 354-8420" class="underline">(647) 354-8420</a></p>
+          <p>Email: <a href="mailto:tamish@psrbrokerage.com" target="_blank" class="underline">tamish@psrbrokerage.com</a></p>
+        </div>
+      </div>
+      <div id="footer-right">
+        <div id="footer-right-left">
+          <h4 class="bold">About</h4>
+          <nav id="footer-middle-nav" class="light underline">
+            <a href="about.html">Who we are</a>
+            <a href="buyingguide.html">Buying Guide</a>
+            <a href="sellingguide.html">Selling Guide</a>
+            <a href="rentingguide.html">Renting Guide</a>
+            <a href="contact.html">Contact Me</a>
+          </nav>
+        </div>
+        <div id="footer-right-right">
+          <h4 class="bold">Follow</h4>
+          <nav id="footer-right-nav" class="light underline">
+            <a href="https://www.instagram.com/tamish" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/tamishmultani" target="_blank">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="scripts/hamburger.js"></script>
+  </body>
+  <script src="scripts/contact.js"></script>
+</html>

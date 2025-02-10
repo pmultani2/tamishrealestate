@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search - Tamish Multani Real Estate</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="stylesheet" href="../styles/general2.css">
+    <link rel="stylesheet" href="../styles/loader.css">
+    <link rel="stylesheet" href="../styles/search.css">
+    <script src="https://kit.fontawesome.com/9ecfa21df9.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header id="sticky-header">
+      <a href="/" class="bold" id="home-link">TAMISH</a>
+      <nav id="header-nav">
+        <a href="/search">Property Search</a>
+        <a href="/" class="bold">TAMISH</a>
+        <a href="/#contact-section">Contact Us</a>
+      </nav>
+      <button id="hamburger" style="border: none; background-color: transparent;">
+        <i class="fa-solid fa-bars fa-xl" style="color: #000000;"></i>
+      </button>
+    </header>
+    <div id="overlay">
+      <nav>
+        <a href="/">Home</a>
+        <a href="search.html" class="underline">Property Search</a>
+        <a href="../contact.html">Contact Us</a>
+      </nav>
+    </div>
+    <hr>
+    <main>
+      <section id="title">
+        <header>
+          <h1 class="bold">Search Real Estate</h1>
+        </header>
+      </section>
+      <div id="main-body-div">
+        <section id="search-parameters">
+          <div id="search-parameters-div">
+            <div id="search-input-div">
+              <label for="search-input">Search</label>
+              <input id="search-input" name="query" placeholder="Enter Location" type="search" autocomplete="off" hx-get="/search" hx-target="#results-grid" hx-trigger="keyup changed delay 300:ms" hx-swap="innerHTML" hx-include="[name='beds'], [name='baths'], [name='min-price'], [name='max-price']">
+            </div>  
+            <div id="property-type-div" class="radio">
+              <label class="light">Property Type</label>
+              <div>
+                <label for="residential">Residential <input type="radio" id="residential" name="collection" value="residential"></label>
+                <label for="condo">Condo <input type="radio" id="condo" name="collection" value="condo"></label>
+              </div>  
+            </div>
+            <div id="bed-div" class="radio">
+              <label class="light">Beds</label>
+              <div>
+                <label for="0-beds">0+ <input type="radio" name="beds" id="0-beds" value="0" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']" checked="checked"></label>
+                <label for="1-beds">1+ <input type="radio" name="beds" id="1-beds" value="1" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']"></label>
+                <label for="2-beds">2+ <input type="radio" name="beds" id="2-beds" value="2" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']"></label>
+                <label for="3-beds">3+ <input type="radio" name="beds" id="3-beds" value="3" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']"></label>
+                <label for="4-beds">4+ <input type="radio" name="beds" id="4-beds" value="4" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']"></label>
+                <label for="5-beds">5+ <input type="radio" name="beds" id="5-beds" value="5" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='baths'], [name='min-price'], [name='max-price']"></label>
+              </div>
+            </div>
+            <div id="bath-div" class="radio">
+              <label class="light">Baths</label>
+              <div>
+                <label for="0-baths">0+ <input type="radio" name="baths" id="0-baths" value="0" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']" checked="checked"></label>
+                <label for="1-baths">1+ <input type="radio" name="baths" id="1-baths" value="1" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']"></label>
+                <label for="2-baths">2+ <input type="radio" name="baths" id="2-baths" value="2" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']"></label>
+                <label for="3-baths">3+ <input type="radio" name="baths" id="3-baths" value="3" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']"></label>
+                <label for="4-baths">4+ <input type="radio" name="baths" id="4-baths" value="4" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']"></label>
+                <label for="5-baths">5+ <input type="radio" name="baths" id="5-baths" value="5" hx-get="/search" hx-trigger="click" hx-target="#results-grid" hx-include="[name='query'], [name='beds'], [name='min-price'], [name='max-price']"></label>
+              </div>
+            </div>
+            <div id="price-div">
+              <label for="price-input">Price</label>
+              <div id="price-div-div">
+                <label for="min-price">Min 
+                  <input name="min-price" id="min-price" hx-get="/search" hx-target="#results-grid" hx-trigger="keyup changed delay 300:ms" hx-swap="innerHTML" hx-include="[name='query'], [name='beds'], [name='baths'], [name='max-price']">
+                </label>
+                <label for="max-price">Max 
+                  <input name="max-price" id="max-price" hx-get="/search" hx-target="#results-grid" hx-trigger="keyup changed delay 300:ms" hx-swap="innerHTML" hx-include="[name='query'], [name='beds'], [name='baths'], [name='min-price']">
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="results">
+          <div id="results-grid" th:insert="~{searchresults}">
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="../scripts/hamburger.js"></script>
+    <script src="/scripts/search2.js"></script>
+  </body>
+</html>

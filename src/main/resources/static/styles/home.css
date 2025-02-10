@@ -1,0 +1,257 @@
+#search-section {
+  position: relative;
+}
+
+#skyline-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#search-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-input {
+  border: none;
+  width: max-content;
+  font-family: Aktiv-Grotesk-Light;
+  padding: 1em 4em 1em 0.75em;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+#search-btn {
+  border: none;
+  padding: 1em 4em;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Aktiv-Grotesk-Light;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+#search-btn:hover {
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+#looking-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+#looking-nav {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#looking-nav a {
+  flex: 1;
+}
+
+.looking-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1em;
+  transition: transform 0.5s;
+}
+.looking-item-container:hover {
+  transform: scale(1.05);
+}
+
+.looking-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+#meet-tamish-section {
+  display: flex;
+  padding: 2em;
+  justify-content: flex-start;
+}
+
+#meet-left-container {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+#meet-text-container {
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+  width: 70%;
+  align-self: center;
+}
+
+#connect-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+#connect-btn {
+  width: 100%;
+}
+
+#meet-img-container {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#portrait-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+#client-review-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+}
+
+#client-review-section header h1 {
+  text-align: center;
+}
+
+.carousel-elements-wrapper {
+  width: 100%;
+  align-items: flex-start;
+}
+
+.review-container {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-sizing: border-box;
+  min-width: calc(25% - 1em);
+  max-width: calc(25% - 1em);;
+  padding: 2em;
+  background-color: #F1F1EF;
+  text-align: center;
+}
+
+#recent-sales-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.sale-container {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  min-width: calc(25% - 1em);
+}
+
+.sale-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#team-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+#team-members-container {
+  display: flex;
+  justify-content: center;
+  gap: 6em;
+  width: 50%;
+}
+
+.team-member-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.member-img {
+  border-radius: 1em;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 2/ 3;
+}
+
+.member-name {
+  margin-top: 0.75em;
+}
+
+@media screen and (max-width: 600px) {
+  #looking-nav {
+    flex-direction: column;
+  }
+
+  .looking-item-container {
+    min-width: 100%;
+  }
+
+  .looking-img {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  #meet-tamish-section {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1em;
+  }
+
+  #meet-tamish-section > * {
+    width: 100%;
+  }
+
+  #meet-text-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .review-container {
+    min-width: calc(100% - 1em);
+  }
+
+  .sale-container {
+    min-width: calc(100% - 1em);
+    max-width: calc(100% - 1em);
+  }
+
+  #team-members-container {
+    width: 100%;
+    gap: 0;
+  }
+
+  .team-member-container:nth-of-type(2) {
+    margin-left: -25%;
+    margin-top: 50%;
+  }
+
+  .member-name, .member-title {
+    width: 75%;
+  }
+}
