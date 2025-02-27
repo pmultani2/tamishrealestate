@@ -1,8 +1,6 @@
 .carousel {
   width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 2em;
   align-items: center;
   position: relative;
 }
@@ -11,17 +9,22 @@
   width: 50%;
   display: flex;
   overflow: hidden;
-  scroll-behavior: smooth;
   align-items: center;
+  justify-content: space-between;
+  gap: 2em;
 }
 
 .carousel-btn {
   border: none;
   background-color: #000000;
   color: #ffffff;
-  border-radius: 50%;
+  border-radius: 0 3px 3px 0;
   aspect-ratio: 1;
   transition: opacity 0.25s;
+  padding: 16px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .carousel-btn:hover {
@@ -30,8 +33,7 @@
 }
 
 .carousel-element {
-  min-width: 100%;
-  max-width: 100%;
+  width: 100%;
   object-fit: cover;
 }
 

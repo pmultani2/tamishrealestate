@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tamish Multani Real Estate</title>
+    <meta name="description" th:content="${property.adText}">
+    <title th:text="${property.aptNum} ? |${property.aptNum} - ${property.addr} - Tamish Real Estate| : |${property.addr} - Tamish Real Estate|"></title>
     <link rel="icon" type="image/x-icon" href="../images/favicon_package_v0.16/favicon-32x32.png">
     <link rel="stylesheet" href="../styles/general2.css">
-    <link rel="stylesheet" href="../styles/carousel.css">
+    <link rel="stylesheet" href="../styles/slideshow.css">
     <link rel="stylesheet" href="../styles/property.css">
     <script src="https://kit.fontawesome.com/9ecfa21df9.js" crossorigin="anonymous"></script>
   </head>
@@ -17,7 +18,7 @@
       <nav id="header-nav">
         <a href="/search">Property Search</a>
         <a href="/" class="bold">TAMISH</a>
-        <a href="/#contact-section">Contact Us</a>
+        <a href="/#contact">Contact Us</a>
       </nav>
       <button id="hamburger" style="border: none; background-color: transparent;">
         <i class="fa-solid fa-bars fa-xl" style="color: #000000;"></i>
@@ -27,76 +28,113 @@
       <nav>
         <a href="/">Home</a>
         <a href="/search" class="underline">Property Search</a>
-        <a href="../contact.html">Contact Us</a>
+        <a href="/#contact">Contact Us</a>
       </nav>
     </div>
     <hr>
     <main>
       <section id="property">
-        <div id="property-img-div" class="carousel">
-          <div class="button-div">
-            <button class="carousel-btn carousel-left-btn">&#8592</button>
-            <button class="carousel-btn carousel-right-btn">&#8594</button>
+        <div id="property-img-div" class="slideshow-container">
+          <div th:if="${property.numberOfPhotos != null and property.numberOfPhotos > 0}">
+            <div class="mySlides" th:each="photoId : ${#numbers.sequence(1, property.numberOfPhotos)}">
+              <img th:src="@{https://drhihh4n0z390.cloudfront.net/{id}/{photoId}.jpeg(id=${property.mlNum}, photoId=${photoId})}" alt="property photo">
+            </div>
           </div>
-          <div class="carousel-elements-wrapper">
-            <img th:each="photoId : ${#numbers.sequence(1, photoCount)}" th:src="@{/photos/{id}/{photoId}.jpeg(id=${property.mlNum}, photoId=${photoId})}" class="carousel-element" alt="property photo">
+          <div th:if="${property.numberOfPhotos == null or property.numberOfPhotos == 0}">
+            <div class="mySlides">
+              <img th:src="@{/images/fallback.jpg}" alt="Default Property Photo">
+            </div>
           </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        <div id="property-info-div" class="light">
-          <h1 id="property-address" th:text="${property.addr}"></h1>
+        <div id="property-info-div">
+          <h1 id="property-address" th:text="${property.aptNum} ? |${property.aptNum} - ${property.addr}| : ${property.addr}"></h1>
           <h3 id="property-area" th:text="|${property.area}, ${property.county} ${property.zip}|"></h3>
-          <p id="property-bed-bath" th:text="|${property.br} BR ${property.bathTot} BA|"></p>
-          <p id="property-price" class="bold" th:text="${'$' + #numbers.formatDecimal(property.lpDol, 0, 'COMMA', 2, 'POINT')}"></p>
+          <p id="property-bed-bath" th:text="|${property.br ?: 'N/A'} Beds ${property.bathTot ?: 'N/A'} Baths|"></p>
+          <p id="property-price" th:text="${'$' + #numbers.formatDecimal(property.lpDol, 0, 'COMMA', 2, 'POINT')}"></p>
           <p id="property-description" th:text="${property.adText}"></p>
-          <p id="property-extras" th:text="${property.extras}"></p>
         </div>
-        <div id="property-iframe-div">
-          <iframe
-          width="450"
-          height="250"
-          frameborder="0" style="border:0"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+      </section>
+      <section id="key-details" class="property-detail-section">
+        <header>
+          <h1>Key Details</h1>
+        </header>
+        <hr>
+        <div id="details-div" class="property-detail-div">
+          <div class="detail">
+            <h2 class="detail-header">MLS® Number</h2>
+            <span class="detail-text" th:text="${property.mlNum}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Bedrooms</h2>
+            <span class="detail-text" th:text="${property.br}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Bathrooms</h2>
+            <span class="detail-text" th:text="${property.bathTot}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Kitchens</h2>
+            <span class="detail-text" th:text="${property.numKit}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Laundry</h2>
+            <span class="detail-text" th:text="${property.laundryLev}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Fireplace</h2>
+            <span class="detail-text" th:text="${property.fireplacesTotal}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Community</h2>
+            <span class="detail-text" th:text="${property.community}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Square Footage</h2>
+            <span class="detail-text" th:text="${property.sqft}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Parking Spaces</h2>
+            <span class="detail-text" th:text="${property.totParkSpcs}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Garage</h2>
+            <span class="detail-text" th:text="${property.garType}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Heat Type</h2>
+            <span class="detail-text" th:text="${property.heating}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Taxes</h2>
+            <span class="detail-text" th:text="${'$' + #numbers.formatDecimal(property.taxes, 0, 'COMMA', 2, 'POINT')}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Style</h2>
+            <span class="detail-text" th:text="${property.style}"></span>
+          </div>
+          <div class="detail">
+            <h2 class="detail-header">Air Conditioning</h2>
+            <span class="detail-text" th:text="${property.AC}"></span>
+          </div>
+        </div>
+      </section>
+      <section id="extras-section" class="property-detail-section">
+        <header>
+          <h1>Extras</h1>
+        </header>
+        <hr>
+        <div id="extras-div" class="property-detail-div">
+          <div class="detail">
+            <h2 class="detail-header">Extras</h2>
+            <span class="detail-text" th:text="${property.extras}"></span>
+          </div>
         </div>
       </section>
     </main>
-    <footer>
-      <div id="footer-left">
-        <h4 class="bold">Tamish Multani Real Estate Agent</h4>
-        <nav id="footer-left-nav">
-          <a href="https://goldbarrsrealestate.com/" target="_blank" class="bold underline">Gold Barrs Real Estate Team</a>
-          <a href="https://psrbrokerage.com/" target="_blank" class="bold underline">PSR Brokerage</a>
-        </nav>
-        <div id="footer-left-address" class="light">
-          <p>325 Lonsdale Rd, Toronto, ON M4V 1X3</p>
-        </div>
-        <div id="footer-left-contact" class="light">
-          <p>Phone: <a href="tel:(647) 354-8420" class="underline">(647) 354-8420</a></p>
-          <p>Email: <a href="mailto:tamish@psrbrokerage.com" target="_blank" class="underline">tamish@psrbrokerage.com</a></p>
-        </div>
-      </div>
-      <div id="footer-right">
-        <div id="footer-right-left">
-          <h4 class="bold">About</h4>
-          <nav id="footer-middle-nav" class="light underline">
-            <a href="../about.html">Who we are</a>
-            <a href="../buyingguide.html">Buying Guide</a>
-            <a href="../sellingguide.html">Selling Guide</a>
-            <a href="../rentingguide.html">Renting Guide</a>
-            <a href="../contact.html">Contact Me</a>
-          </nav>
-        </div>
-        <div id="footer-right-right">
-          <h4 class="bold">Follow</h4>
-          <nav id="footer-right-nav" class="light underline">
-            <a href="https://www.instagram.com/tamish" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/in/tamishmultani" target="_blank">LinkedIn</a>
-          </nav>
-        </div>
-      </div>
-    </footer>
     <script src="../scripts/hamburger.js"></script>
-    <script src="../scripts/carousel.js"></script>
+    <script src="../scripts/slideshow.js"></script>
+    <script src="/scripts/readmore.js"></script>
   </body>
 </html>

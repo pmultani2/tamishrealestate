@@ -1,6 +1,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -208,20 +209,4 @@ a {
   src: url(fonts/Roboto/static/Roboto-Light.ttf);
   font-style: normal;
   font-weight: light;
-}
-
-@font-face {
-  font-family: Aktiv-Grotesk;
-  src: url(fonts/aktivgrotesk-regular.ttf);
-}
-
-@font-face {
-  font-family: Aktiv-Grotesk-Light;
-  src: url(fonts/AktivGrotesk-Light.ttf);
-}
-
-@font-face {
-  font-family: Aktiv-Grotesk-Bold;
-  src: url(fonts/AktivGrotesk-Bold.ttf);
-  font-weight: bold;
 }

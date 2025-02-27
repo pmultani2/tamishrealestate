@@ -11,6 +11,12 @@ public class Property {
     @Column(name = "ml_num", nullable = false, length = Integer.MAX_VALUE)
     private String mlNum;
 
+    @Column(name = "number_of_photos")
+    private Short numberOfPhotos;
+
+    @Column(name = "class", length = 11)
+    private String className;
+
     @OneToOne(mappedBy = "property", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Featured featured;
 
@@ -2717,4 +2723,19 @@ public class Property {
         this.cable = cable;
     }
 
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public Short getNumberOfPhotos() {
+        return numberOfPhotos;
+    }
+
+    public void setNumberOfPhotos(short numberOfPhotos) {
+        this.numberOfPhotos = numberOfPhotos;
+    }
 }

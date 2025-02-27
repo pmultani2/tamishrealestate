@@ -22,7 +22,11 @@ public class PropertyService {
     }
 
     public int getPhotoMetadata(String mlNum) throws IOException {
-        Path path = Paths.get("/Users/prabnoormultani/Developer/rets-but-with-python/photos/" + mlNum);
-        return (int) Files.list(path).count();
+        try {
+            Path path = Paths.get("/Users/prabnoormultani/Developer/rets-but-with-python/photos/" + mlNum);
+            return (int) Files.list(path).count();
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

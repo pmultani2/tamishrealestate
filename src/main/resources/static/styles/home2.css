@@ -2,23 +2,47 @@ main {
   background-color: #f4f1ec;
 }
 
-#search-section {
-  position: relative;
-  padding: 2em;
-  background-color: #f4f1ec;
+form input[type=submit]:hover {
+  cursor: pointer;
 }
 
-#skyline-img {
-  width: 100%;
-  object-fit: cover;
+.title {
+  font-size: 4em;
+  text-align: center;
+}
+
+.title:not(#search-section h1) {
+  font-weight: normal
+}
+
+.text {
+  font-size: 1.5em;
+  margin-left: 2em; 
+  margin-right: 2em;
+}
+
+h3 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: normal;
+}
+
+#search-section {
+  margin: 2em;
+  background-color: #f4f1ec;
+  background-image: url(/images/skyline.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #search-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -28,21 +52,19 @@ main {
 
 #search-container header {
   color: white;
-  font-weight: bold;
-  font-size: 2em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-#search-input {
+.text-input:focus {
+  outline: none;
+}
+
+.text-input {
   border: none;
   border-radius: 50em;
   width: 25%;
   padding: 1em 4em 1em 0.75em;
   background-color: #ffffff;
-}
-
-#search-input:focus {
-  outline: none;
 }
 
 #featured-properties-section {
@@ -53,10 +75,6 @@ main {
   color: white;
   justify-content: center;
   padding: 2em;
-}
-
-#featured-properties-section header {
-  font-size: x-large;
 }
 
 #featured-properties-div {
@@ -71,6 +89,7 @@ main {
   color: white;
   text-align: center;
   transition: opacity 0.5s;
+  border-radius: 1em;
 }
 
 .result:hover {
@@ -80,8 +99,9 @@ main {
 
 .property-img {
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
+  border-radius: 1em 1em 0 0;
 }
 
 .property-brokerage {
@@ -98,10 +118,6 @@ main {
   justify-content: center;
 }
 
-#why-work-with-us-section header {
-  font-size: x-large;
-}
-
 #why-work-list {
   text-align: center;
 }
@@ -115,10 +131,6 @@ main {
   align-items: center;
 }
 
-#consultation-section header {
-  font-size: x-large;
-}
-
 #consultation-div {
   display: flex;
   padding: 2em;
@@ -126,14 +138,21 @@ main {
 }
 
 #consultation-div-div {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  font-size: large;
+  font-size: x-large;
 }
 
 #consultation-div-div a {
   color: white;
+  width:fit-content;
   text-decoration: underline;
+}
+
+#consultation-div img {
+  width: 50%;
+  object-fit: cover;
 }
 
 #deal-section {
@@ -144,29 +163,25 @@ main {
   align-items: center;
   justify-content: center;
   gap: 2em;
+  padding: 2em;
 }
 
-#deal-section header {
-  font-weight: bold;
-  font-size: x-large;
-  text-align: center;
-}
-
-#deal-section header h3 {
-  font-weight: normal;
-}
-
-#deal-section div {
+#deal-section form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2em;
+  width: 100%;
 }
 
-#deal-section div div {
+#deal-section form div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
 }
 
 #client-review-section {
@@ -186,17 +201,53 @@ main {
 }
 
 .review-container {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  font-size: 1.5em;
+  font-weight: normal;
   box-sizing: border-box;
-  min-width: calc(25% - 1em);
-  max-width: calc(25% - 1em);;
+  min-width: calc(50% - 1em);
+  max-width: calc(50% - 1em);
   padding: 2em;
-  background-color: #F1F1EF;
+  background-color: #222222;
+  color: white;
+  border-radius: 1em;
   text-align: center;
 }
 
+#contact {
+  color: white;
+  padding: 2em;
+  background-color: #222222;
+}
+
+#contact-div {
+  display: flex;
+  gap: 2em;
+}
+
+#contact-info {
+  width: 50%;
+}
+
+#contact-img {
+  width: 25%;
+}
+
+#contact-img img {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (max-width: 1250px) {
+  #search-section {
+    background-attachment: scroll;
+  }
+}
+
 @media screen and (max-width: 800px) {
+  #search-section header {
+    font-size: 1.5em;
+  }
+
   .review-container {
     min-width: calc(100% - 1em);
   }
@@ -221,12 +272,40 @@ main {
   }
 
   #featured-properties-div {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  #contact-img {
+    width: 50%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #featured-properties-div {
-    grid-template-columns: 1fr;
+  #search-section header {
+    font-size: 1em;
+  }
+  
+  #consultation-div {
+    flex-direction: column;
+  }
+
+  #consultation-div img {
+    width: 100%;
+  }
+
+  #consultation-div-div {
+    width: 100%;
+  }
+
+  #contact-div {
+    flex-direction: column;
+  }
+
+  #contact-img {
+    width: 100%;
+  }
+
+  #contact-info {
+    width: 100%;
   }
 }

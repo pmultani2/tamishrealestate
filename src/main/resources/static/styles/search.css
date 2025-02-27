@@ -1,6 +1,7 @@
-#title {
+#title header h1 {
   text-align: center;
-  font-size: 32px;
+  font-size: 4em;
+  font-weight: normal;
 }
 
 #main-body-div {
@@ -19,7 +20,8 @@
   display: flex;
   justify-content: space-between;
   padding: 1em;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 #search-parameters-div div:not(.radio div) {
@@ -31,14 +33,12 @@ label {
   font-weight: lighter;
 }
 
-input {
-  background-color: #F1F1EF;
-  color: #000000;
-  border: none;
-  border-radius: 50em;
-  padding: 1em 1em 1em 1em;
-  border-bottom: 1px solid #000000;
-  font-weight: lighter;
+#search-input-div input {
+  height: 4em;
+}
+
+#price-div-div input {
+  height: 2em;
 }
 
 input::placeholder {
@@ -49,34 +49,44 @@ input:focus {
   outline: none;
 }
 
-.radio {
-  gap: 1em;
-}
-
-#sale-type-radio div {
+.radio div {
   display: flex;
-  gap: 2em;
+  align-items: center;
+  gap: 0.5em;
 }
 
-#bed-div div, #bath-div div {
+.radio div label {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: solid 2px #ccc;
+  border-radius: 50em;
+  padding: 1em;
+  transition: all 0.3s;
 }
 
-#property-type-div {
-  gap: 1em;
+.radio div input[type="radio"] {
+  display: none;
 }
 
-#property-type-div div {
-  display: flex;
-  gap: 2em;
+.radio div label:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.radio div input[type="radio"]:checked + label {
+  background-color: white;
+  color: black;
 }
 
 #price-div-div {
   display: flex;
   flex-direction: row !important;
   justify-content: space-between;
-  gap: 2em;
+  align-items: center;
+  gap: 1em;
 }
 
 #price-div {
@@ -103,6 +113,7 @@ input:focus {
   color: white;
   text-align: center;
   transition: opacity 0.5s;
+  border-radius: 1em;
 }
 
 .result:hover {
@@ -114,14 +125,7 @@ input:focus {
   width: 100%;
   height: 250px;
   object-fit: cover;
-}
-
-.property-address, .property-bed-bath, .property-brokerage {
-  font-family: Aktiv-Grotesk-Light;
-}
-
-.property-price {
-  font-family: Aktiv-Grotesk-Bold;
+  border-radius: 1em 1em 0 0;
 }
 
 .property-brokerage {
@@ -153,11 +157,16 @@ input:focus {
   #search-parameters-div {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2em;
+    justify-content: space-between;
   }
 
   #search-parameters-div div {
     width: 100%;
+  }
+
+  #price-div-div {
+    flex-direction: column !important;
+    align-items: flex-start;
   }
 
   #results-grid {

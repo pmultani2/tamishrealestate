@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
-<header><h1>Featured Properties</h1></header>
+<header><h1 class="title">Featured Properties</h1></header>
 <div id="featured-properties-div" hx-get="/featured">
   <a class="result" th:each="property, iterStat : ${properties}" th:href="@{/property/{id}(id=${property.mlNum})}">
-    <img class="property-img" th:src="@{/photos/{id}/1.jpeg(id=${property.mlNum})}">
-    <p class="property-address" th:text="${property.property.addr}"></p>
-    <p class="property-bed-bath" th:text="|${property.property.br} BD ${property.property.bathTot} BA|"></p>
+    <img class="property-img" th:src="@{https://drhihh4n0z390.cloudfront.net/{id}/1.jpeg(id=${property.mlNum})}">
+    <p class="property-address" th:text="${property.property.aptNum} ? |${property.property.aptNum} - ${property.property.addr}| : ${property.property.addr}"></p>
+    <p class="property-bed-bath" th:text="|${property.property.br ?: 'N/A'} Beds ${property.property.bathTot ?: 'N/A'} Baths|"></p>
     <p class="property-price" th:text="${'$' + #numbers.formatDecimal(property.property.lpDol, 0, 'COMMA', 2, 'POINT')}"></p>
     <p class="property-brokerage" th:text="|Listing courtesy of ${property.property.rltr}|"></p>
   </a>

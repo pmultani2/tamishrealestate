@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div>
+    <label for="firstname">First Name</label>
+    <input id="firstname" class="text-input" type="text" name="firstname" placeholder="First Name">
+</div>
+<div>
+    <label for="lastname">Last Name</label>
+    <input id="lastname" class="text-input" type="text" name="lastname" placeholder="Last Name">
+</div>
+<div>
+    <label for="email">Email Address</label>
+    <input id="email" class="text-input" type="text" name="email" placeholder="Email Address">
+</div>
+<div>
+    <input type="submit">
+</div>
+<div th:text="${response}"></div>
+</html>

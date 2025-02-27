@@ -1,26 +1,41 @@
-const btnLeft = document.getElementsByClassName("carousel-left-btn")
-const btnRight = document.getElementsByClassName("carousel-right-btn")
-const carousel = document.getElementsByClassName("carousel-elements-wrapper")
+const btnLeft = document.getElementsByClassName("carousel-left-btn");
+const btnRight = document.getElementsByClassName("carousel-right-btn");
+const carousel = document.getElementsByClassName("carousel-elements-wrapper");
 
-for (let i = 0; i < carousel.length; i ++) {
-  carousel[i].style.width = carousel[i].offsetWidth + 'px';
-  let scrollAmount = carousel[i].offsetWidth;
+function createCarousel() {
+  for (let i = 0; i < carousel.length; i ++) {
+    let t;
+    let start = 100;
+    let speedup = 2;
+    let scrollAmount;
 
-  btnLeft[i].onclick = function() {
-    btnLeft[i].disabled = true;
-    carousel[i].scrollLeft -= scrollAmount;
-    setTimeout(function() {
-      btnLeft[i].disabled = false;
-    }, 750);
-  };
+    let scrollFunction = function () {
+      carousel[i].scrollLeft += scrollAmount;
+      console.log(start);
+      t = setTimeout(scrollFunction, start);
+      start = start / speedup;
+    }
 
-  btnRight[i].onclick = function() {
-    btnRight[i].disabled = true;
-    carousel[i].scrollLeft += scrollAmount;
-    setTimeout(function() {
-      btnRight[i].disabled = false;
-    }, 750);
-  }; 
+    btnLeft[i].onpointerdown = function() {
+      scrollAmount = -5;
+      scrollFunction()
+    };
+    btnLeft[i].onpointerup = function() {
+      clearTimeout(t);
+    }
+
+    btnRight[i].onpointerdown = function() {
+      scrollAmount = 5;
+      scrollFunction();
+    };
+    btnRight[i].onpointerup = function() {
+      clearTimeout(t);
+    }
+  }
 }
+
+createCarousel();
+
+
 
 
