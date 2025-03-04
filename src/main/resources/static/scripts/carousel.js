@@ -5,8 +5,8 @@ const carousel = document.getElementsByClassName("carousel-elements-wrapper");
 function createCarousel() {
   for (let i = 0; i < carousel.length; i ++) {
     let t;
-    let start = 100;
-    let speedup = 2;
+    let start = 1;
+    let speedup = 1;
     let scrollAmount;
 
     let scrollFunction = function () {
@@ -20,6 +20,16 @@ function createCarousel() {
       scrollAmount = -5;
       scrollFunction()
     };
+    btnLeft[i].onmouseover = function() {
+      scrollAmount = -5;
+      scrollFunction();
+    }
+    btnLeft[i].onmouseout = function() {
+      clearTimeout(t);
+    }
+    btnLeft[i].onmouseup = function() {
+      clearTimeout(t);
+    }
     btnLeft[i].onpointerup = function() {
       clearTimeout(t);
     }
@@ -28,6 +38,16 @@ function createCarousel() {
       scrollAmount = 5;
       scrollFunction();
     };
+    btnRight[i].onmouseover = function() {
+      scrollAmount = 5;
+      scrollFunction();
+    }
+    btnRight[i].onmouseout = function() {
+      clearTimeout(t);
+    }
+    btnRight[i].onmouseup = function() {
+      clearTimeout(t);
+    }
     btnRight[i].onpointerup = function() {
       clearTimeout(t);
     }

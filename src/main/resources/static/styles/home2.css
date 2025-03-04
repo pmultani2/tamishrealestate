@@ -9,6 +9,11 @@ form input[type=submit]:hover {
 .title {
   font-size: 4em;
   text-align: center;
+  margin: 0;
+}
+
+header {
+  height: min-content;
 }
 
 .title:not(#search-section h1) {
@@ -17,8 +22,6 @@ form input[type=submit]:hover {
 
 .text {
   font-size: 1.5em;
-  margin-left: 2em; 
-  margin-right: 2em;
 }
 
 h3 {
@@ -39,6 +42,29 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#search-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#search-button {
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 2em;
+  padding: 1em;
+  font-weight: lighter;
+}
+
+#search-button:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
 }
 
 #search-container {
@@ -67,14 +93,22 @@ h3 {
   background-color: #ffffff;
 }
 
-#featured-properties-section {
+.main-section {
+  padding: 4em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.tail-text {
+  margin-bottom: 0;
+}
+
+#featured-properties-section {
   background-color: #182b17;
   color: white;
-  justify-content: center;
-  padding: 2em;
 }
 
 #featured-properties-div {
@@ -105,17 +139,7 @@ h3 {
 }
 
 .property-brokerage {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  margin-right: 0.5em;
-  margin-left: 0.5em;
-}
-
-#why-work-with-us-section {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
+  margin: 0 0.5em 0.5em;
 }
 
 #why-work-list {
@@ -123,17 +147,12 @@ h3 {
 }
 
 #consultation-section {
-  display: flex;
-  flex-direction: column;
   background-color: #222222;
   color: white;
-  justify-content: center;
-  align-items: center;
 }
 
 #consultation-div {
   display: flex;
-  padding: 2em;
   gap: 2em;
 }
 
@@ -158,12 +177,6 @@ h3 {
 #deal-section {
   background-color: #182b17;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2em;
-  padding: 2em;
 }
 
 #deal-section form {
@@ -184,11 +197,12 @@ h3 {
   width: 100%;
 }
 
+#deal-section .tail-text {
+  text-align: center;
+}
+
 #client-review-section {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 2em;
 }
 
 #client-review-section header h1 {
@@ -207,15 +221,11 @@ h3 {
   min-width: calc(50% - 1em);
   max-width: calc(50% - 1em);
   padding: 2em;
-  background-color: #222222;
-  color: white;
-  border-radius: 1em;
   text-align: center;
 }
 
 #contact {
   color: white;
-  padding: 2em;
   background-color: #222222;
 }
 
@@ -226,6 +236,10 @@ h3 {
 
 #contact-info {
   width: 50%;
+}
+
+#contact-info a {
+  color: inherit;
 }
 
 #contact-img {
@@ -244,12 +258,20 @@ h3 {
 }
 
 @media screen and (max-width: 800px) {
-  #search-section header {
-    font-size: 1.5em;
+  #search-input {
+    width: 51%;
+  }
+
+  .carousel-element-wrapper {
+    min-width: 100%;
   }
 
   .review-container {
-    min-width: calc(100% - 1em);
+    min-width: 100%;
+  }
+
+  #search-section header {
+    font-size: 12px;
   }
 
   .sale-container {
@@ -281,8 +303,41 @@ h3 {
 }
 
 @media screen and (max-width: 600px) {
+  #consultation-div p {
+    font-size: 16px;
+  }
+
+  #consultation-div a {
+    font-size: 16px;
+  }
+
+  .review-container {
+    font-size: 16px;
+  }
+
+  #search-input {
+    width: 51%;
+  }
+
+  .main-section {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  #why-work-list {
+    font-size: 16px;
+  }
+
   #search-section header {
-    font-size: 1em;
+    font-size: 8px;
+  }
+
+  #deal-section .text-input {
+    width: 75%;
+  }
+
+  .main-section header {
+    font-size: 8px;
   }
   
   #consultation-div {
@@ -297,8 +352,14 @@ h3 {
     width: 100%;
   }
 
+  #deal-section .tail-text {
+    font-size: 16px;
+  }
+
   #contact-div {
     flex-direction: column;
+    font-size: 16px;
+    color: white;
   }
 
   #contact-img {
@@ -307,5 +368,9 @@ h3 {
 
   #contact-info {
     width: 100%;
+  }
+
+  .head-text {
+    margin-top: 0;
   }
 }

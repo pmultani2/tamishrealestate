@@ -9,7 +9,6 @@
   width: 50%;
   display: flex;
   overflow: hidden;
-  align-items: center;
   justify-content: space-between;
   gap: 2em;
 }
@@ -49,10 +48,4 @@
 .button-div button {
   opacity: 50%;
   margin: 0 2em;
-}
-
-@media screen and (max-width: 800px) {
-  .carousel-elements-wrapper {
-    width: 100%;
-  }
 }

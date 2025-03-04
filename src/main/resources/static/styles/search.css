@@ -164,9 +164,22 @@ input:focus {
     width: 100%;
   }
 
+  #bed-div, #bath-div {
+    width: 100%;
+  }
+
+  #bed-div div, #bath-div div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   #price-div-div {
     flex-direction: column !important;
     align-items: flex-start;
+  }
+
+  #price-div-div input {
+    width: calc(100% - 2em);
   }
 
   #results-grid {

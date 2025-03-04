@@ -97,7 +97,20 @@ p, span {
 }
 
 @media screen and (max-width: 600px) {
+  #property-description {
+    font-size: 16px;
+  }
+
   #details-div {
     grid-template-columns: 1fr;
+  }
+
+  .property-detail-section {
+    flex-direction: column;
+  }
+
+  .property-detail-section hr {
+    margin-left: 0;
+    margin-right: 0;
   }
 }

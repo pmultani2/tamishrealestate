@@ -36,12 +36,12 @@
     <section id="search-section">
         <div id="search-container">
             <header><h1 class="title">Find Your Perfect Place</h1></header>
-            <input class="text-input" type="text" name="query" placeholder="MLS® Number, Address or Area" id="search-input" autocomplete="off" hx-get="/search" hx-target="html" hx-swap="outerHTML" hx-push-url="true" hx-trigger="keyup[key=='Enter']">
+            <div id="search-div"><input class="text-input" type="text" name="query" placeholder="MLS® Number, Address or Area" id="search-input" autocomplete="off"><button id="search-button">Search</button></div>
         </div>
     </section>
-    <section id="featured-properties-section" th:insert="~{featured}">
+    <section id="featured-properties-section" th:insert="~{featured}" class="main-section">
     </section>
-   <section id="why-work-with-us-section">
+   <section id="why-work-with-us-section" class="main-section">
     <header><h1 class="title">Why Work With Us?</h1></header>
     <div id="why-work-list" class="text">
         <p>Hands-on customized property searches</p>
@@ -50,10 +50,10 @@
         <p>Targeted marketing strategies that get results</p>
         <p>Expertise in selling homes for top dollar</p>
         <p>In-depth knowledge of Toronto's neighbourhoods and market trends</p>
-        <p>Dedicated support to make your experience seamless and stress-free</p>
+        <p class="tail-text">Dedicated support to make your experience seamless and stress-free</p>
     </div>
    </section>
-   <section id="consultation-section">
+   <section id="consultation-section" class="main-section">
     <header><h1 class="title">Book a consultation</h1></header>
     <div id="consultation-div">
         <img src="https://media-public.canva.com/7lcIY/MAGFb_7lcIY/1/s.png">
@@ -63,7 +63,7 @@
         </div>
     </div>
    </section>
-   <section id="deal-section">
+   <section id="deal-section" class="main-section">
     <header><h1 class="title">Deal of the Week</h1><h3>Your Weekly Toronto Real Estate Deal - Straight to Your Inbox!</h3></header>
     <form class="text" hx-post="/addcontact" hx-swap="innerHTML">
         <div>
@@ -79,12 +79,12 @@
             <input id="email" class="text-input" type="text" name="email" placeholder="Email Address" required>
         </div>
         <div>
-            <input type="submit">
+            <input type="submit" value="Subscribe">
         </div>
     </form>
-    <p class="text">Sign up to receive one handpicked Toronto real estate deal every week. Simple, straightforward, and delivered to your inbox.</p>
+    <p class="text tail-text">Sign up to receive one handpicked Toronto real estate deal every week. Simple, straightforward, and delivered to your inbox.</p>
    </section>
-    <section id="client-review-section">
+    <section id="client-review-section" class="main-section">
         <header>
             <h1 class="title">Client Reviews</h1>
         </header>
@@ -133,7 +133,7 @@
             </div>
         </div>
     </section>
-    <section id="contact">
+    <section id="contact" class="main-section">
         <header>
             <h1 class="title">Do you have questions? Contact us.</h1>
         </header>
@@ -143,7 +143,7 @@
             </div>
             <div id="contact-info">
                 <div>
-                    <p>Tamish Multani</p>
+                    <p class="head-text">Tamish Multani</p>
                     <p>Real Estate Agent</p>
                 </div>
                 <div>
@@ -152,7 +152,7 @@
                 </div>
                 <div>
                     <p>Email</p>
-                    <p>tamish@psrbrokerage.com</p>
+                    <p class="tail-text">tamish@psrbrokerage.com</p>
                 </div>
             </div>
         </div>
